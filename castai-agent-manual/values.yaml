@@ -1,12 +1,12 @@
 castware-operator:
   apiKeySecret:
-    enabled: false
-    name: "castai-api-key"
+    enabled: false          # Keep this false so it doesn't create a duplicate secret
+    apiKey: "placeholder"   # <--- ADD THIS LINE to bypass the validation error
+    name: "castai-api-key"  # This tells the pods to use your manual secret
 
   defaultCluster:
     terraform: false
     provider: "gke"
-    # OPTIONAL: Replace with your actual GKE cluster name
     name: "castai-gke-connect"
     api:
       apiUrl: "https://api.cast.ai"
@@ -14,5 +14,4 @@ castware-operator:
   defaultComponents:
     enabled: true
 
-  # Ensures everything lands in the right place
   namespace: castai-agent

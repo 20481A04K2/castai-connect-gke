@@ -1,8 +1,8 @@
 castware-operator:
   apiKeySecret:
-    enabled: false          # Keep this false so it doesn't create a duplicate secret
-    apiKey: "placeholder"   # <--- ADD THIS LINE to bypass the validation error
-    name: "castai-api-key"  # This tells the pods to use your manual secret
+    enabled: true  # <--- Set this to true
+    apiKey: "b985e8260ece5d9e851036889d1bb85b925623e295496ebe6b9c33e1b1ff72d8" # <--- Use the real key
+    name: "castai-api-key"
 
   defaultCluster:
     terraform: false

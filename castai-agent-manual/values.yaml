@@ -1,0 +1,15 @@
+castware-operator:
+  # This tells the chart to look for a secret we create manually
+  apiKeySecret:
+    enabled: true
+    name: "castai-api-key"
+
+  defaultCluster:
+    terraform: false
+    provider: "gke"
+    api:
+      apiUrl: "https://api.cast.ai"
+  
+  # This installs the Agent, Evictor, and Spot Handler together
+  defaultComponents:
+    enabled: true

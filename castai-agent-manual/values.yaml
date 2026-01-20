@@ -1,7 +1,8 @@
 castware-operator:
-  # FIX: Disable the failing CRD upgrade job
+  # This block MUST be exactly like this to stop the Job
   crds:
     install: false
+    keep: false
 
   apiKeySecret:
     enabled: true

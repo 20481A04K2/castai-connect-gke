@@ -1,6 +1,6 @@
 castware-operator:
   fullnameOverride: castware-operator
-  clusterName: "castai"  # Change this to castai
+  clusterName: "castai"
 
   crds:
     install: false
@@ -8,18 +8,22 @@ castware-operator:
 
   apiKeySecret:
     enabled: true
-    apiKey: "b985e8260ece5d9e851036889d1bb85b925623e295496ebe6b9c33e1b1ff72d8"
+    # USE THE NEW TOKEN FROM YOUR SCRIPT OUTPUT
+    apiKey: "08c19b5f1fae10e41dbde6612f9ee8b9969c3cc3335f1b8437d3ce56246a164b"
     name: "castai-api-key"
 
   defaultCluster:
     enabled: true
     terraform: false
     provider: "gke"
-    name: "castai"      # Change this to castai
+    name: "castai"
     api:
       apiUrl: "https://api.cast.ai"
   
+  # These match the "true" flags in your script
   defaultComponents:
     enabled: true
+    autoscaler: true        # INSTALL_AUTOSCALER=true
+    podPinner: true         # INSTALL_POD_PINNER=true
 
   namespace: castai-agent

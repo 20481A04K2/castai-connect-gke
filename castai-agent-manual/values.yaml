@@ -1,7 +1,11 @@
 castware-operator:
+  # FIX: Disable the failing CRD upgrade job
+  crds:
+    install: false
+
   apiKeySecret:
-    enabled: true  # <--- Set this to true
-    apiKey: "b985e8260ece5d9e851036889d1bb85b925623e295496ebe6b9c33e1b1ff72d8" # <--- Use the real key
+    enabled: true
+    apiKey: "b985e8260ece5d9e851036889d1bb85b925623e295496ebe6b9c33e1b1ff72d8"
     name: "castai-api-key"
 
   defaultCluster:

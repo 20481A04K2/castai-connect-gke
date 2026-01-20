@@ -1,5 +1,4 @@
 castware-operator:
-  # FIX: This ensures the webhook service name matches what the operator expects
   fullnameOverride: castware-operator
 
   crds:
@@ -12,13 +11,17 @@ castware-operator:
     name: "castai-api-key"
 
   defaultCluster:
+    enabled: true
     terraform: false
     provider: "gke"
-    name: "castai-gke-connect"
+    # Your custom cluster name
+    name: "castai-gke-connect" 
     api:
       apiUrl: "https://api.cast.ai"
   
   defaultComponents:
     enabled: true
+    # FIX: Explicitly tell components to use your custom name
+    clusterName: "castai-gke-connect"
 
   namespace: castai-agent

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: castai-agent
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/20481A04K2/castai-connect-gke.git
+    targetRevision: HEAD
+    path: castai-agent-manual
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: castai-agent # Must match the secret namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    createNamespace: true

@@ -1,5 +1,7 @@
 castware-operator:
-  # This block MUST be exactly like this to stop the Job
+  # FIX: This ensures the webhook service name matches what the operator expects
+  fullnameOverride: castware-operator
+
   crds:
     install: false
     keep: false

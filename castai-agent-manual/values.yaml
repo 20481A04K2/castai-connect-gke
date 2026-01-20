@@ -1,9 +1,6 @@
 castware-operator:
   fullnameOverride: castware-operator
-
-  # GLOBAL FIX: This tells all components (Agent/Spot Handler) 
-  # to look for the cluster named "castai-gke-connect"
-  clusterName: "castai-gke-connect"
+  clusterName: "castai"  # Change this to castai
 
   crds:
     install: false
@@ -18,7 +15,7 @@ castware-operator:
     enabled: true
     terraform: false
     provider: "gke"
-    name: "castai-gke-connect" 
+    name: "castai"      # Change this to castai
     api:
       apiUrl: "https://api.cast.ai"
   

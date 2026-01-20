@@ -1,6 +1,6 @@
 castware-operator:
   apiKeySecret:
-    enabled: true
+    enabled: false
     name: "castai-api-key"
 
   defaultCluster:

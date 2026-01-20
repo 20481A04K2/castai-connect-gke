@@ -9,11 +9,17 @@ spec:
     repoURL: https://github.com/20481A04K2/castai-connect-gke.git
     targetRevision: HEAD
     path: castai-agent-manual
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: castai-agent # Must match the secret namespace
+    namespace: castai-agent
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    createNamespace: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true      # Critical for GKE to handle large CRDs
+      - SkipSchemaValidation=true # Helps bypass minor Helm version mismatches
